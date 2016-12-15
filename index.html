@@ -25,6 +25,7 @@ var loadClicked = false;
 var tempClicked = false;
 var washClicked = false;
 var dryClicked = false;
+var qty = 0;
 
 function setLoadMultiplier(multiplier) { loadMultiplier = multiplier; energyCalculation(tempEnergy, loadMultiplier, dryConsumption); waterCalculation(washWater, loadMultiplier);}
 function setTempEnergy(energy) { tempEnergy = energy; energyCalculation(tempEnergy, loadMultiplier, dryConsumption); }	
@@ -97,8 +98,21 @@ function washClick() { washClicked = true }
 function dryClick() { dryClicked = true }
 	
 function startCycle() {
-	if (loadClicked && tempClicked && washClicked && dryClicked) { document.getElementById('Start').src = "Start-Green.png"; }		
-					}
+	if (loadClicked && tempClicked && washClicked && dryClicked) { document.getElementById('Start').src = "Start-Green.png"; document.getElementById('startWash').style.display = 'block'; document.getElementById('runLaterButton').style.display = 'block'}			
+
+}
+function modify_qty(val) {
+    var qty = document.getElementById('qty').value;
+    var new_qty = parseInt(qty,10) + val;    
+    if (new_qty < 0) {
+        new_qty = 0;
+    				}    
+    document.getElementById('qty').value = new_qty;
+	runLaterHours = Math.floor(new_qty/60);
+	runLaterMinutes = new_qty % 60;
+	document.getElementById("runLaterTimer").innerHTML = runLaterHours + " hours";
+    return new_qty;
+}	
 </script>
 </head>
 
@@ -121,6 +135,22 @@ function startCycle() {
 <img class="layer2" id="TempWash"/>
 <img class="layer2" id="WashDry"/>
 <img class="layer4" id="Start"/>
+
+<a id="startWash" href="#" onClick="alert('Wash cycle started.'); location.reload();" class="layer4"></a>
+
+<a id="runLaterButton" href="#" onClick="document.getElementById('runLaterBox').style.display = 'block'" class="layer4" style="display: none"></a>
+
+<div id="runLaterBox" style="display: none; z-index: 10">
+	<p>Run wash cycle in:</p>
+	<div id="runLaterTimer">0 hours</div>
+    <input id="qty" value="0" style="display: none"/>
+	<a href="#" class="button" id="add120" onClick="modify_qty(120)">Add 2 hours</a>
+	<a href="#" class="button" id="add60" onClick="modify_qty(60)">Add 1 hour</a>
+	<a href="#" class="button" id="sub60" onClick="modify_qty(-60)">Subtract 1 hour</a>
+	<a href="#" class="button" id="sub120" onClick="modify_qty(-120)">Subtract 2 hours</a>
+	<a class="laterButton" id="runLaterBack" onClick="document.getElementById('runLaterBox').style.display = 'none'">Back</a>
+	<a class="laterButton" id="runLaterStart" onClick="alert('Wash cycle starting in ' + runLaterHours + ' hours.'); location.reload()">Start timer</a>
+</div>
 
 <div id="duration" class="layer4">0h:00m</div>
 

@@ -27,7 +27,7 @@ body { font-family: conduit; }
 	top: 343px;
 	left: 639px;
 	color: white;
-	background: rgba(51, 51, 51, 0.99);
+	background: rgba(51, 51, 51, 0.98);
 	border: solid #333333 2px;	
 	border-radius: 5px;
 	height: 400px;
@@ -53,23 +53,22 @@ body { font-family: conduit; }
 .button {
 	text-decoration:none;
 	background: rgba(0, 0, 0, 0.3);	
-	border-radius: 1px;
+	border-radius: 3px;
 	color: white;
-	font-size: 25px;
-	width: 170px;
+	font-size: 35px;
+	width: 225px;
 	padding-left: 10px;
 	padding-right: 10px;
 }
 .button:visited, .button:hover, .button:focus, .button:hover, .button:active { color:white; }
 
-#add120 { top: 85px; }
-#add60 { top: 125px; }
-#sub120 { top: 165px; }
-#sub60 { top: 205px; }
+#add120 { top: 100px; }
+#add60 { top: 155px; }
+#sub60 { top: 210px; }
 
 .laterButton {
 	background: rgba(0, 0, 0, 0.3);
-	border-radius: 1px;
+	border-radius: 3px;
 	padding-left: 10px;
 	height: 45px;
 	

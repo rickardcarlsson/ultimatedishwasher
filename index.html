@@ -98,7 +98,10 @@ function washClick() { washClicked = true }
 function dryClick() { dryClicked = true }
 	
 function startCycle() {
-	if (loadClicked && tempClicked && washClicked && dryClicked) { document.getElementById('Start').src = "Start-Green.png"; document.getElementById('startWash').style.display = 'block'; document.getElementById('runLaterButton').style.display = 'block'}			
+	if (loadClicked && tempClicked && washClicked && dryClicked) {
+		document.getElementById('Start').src = "Start-Green.png";
+		document.getElementById('startWash').style.display = 'block';		
+		document.getElementById('runLaterButton').style.display = 'block'}			
 
 }
 function modify_qty(val) {
@@ -136,7 +139,7 @@ function modify_qty(val) {
 <img class="layer2" id="WashDry"/>
 <img class="layer4" id="Start"/>
 
-<a id="startWash" href="#" onClick="alert('Wash cycle started.'); location.reload();" class="layer4"></a>
+<a id="startWash" href="#" style="display: none;" onClick="alert('Wash cycle started.'); location.reload();" class="layer4"></a>
 
 <a id="runLaterButton" href="#" onClick="document.getElementById('runLaterBox').style.display = 'block'" class="layer4" style="display: none"></a>
 
@@ -147,7 +150,6 @@ function modify_qty(val) {
 	<a href="#" class="button" id="add120" onClick="modify_qty(120)">Add 2 hours</a>
 	<a href="#" class="button" id="add60" onClick="modify_qty(60)">Add 1 hour</a>
 	<a href="#" class="button" id="sub60" onClick="modify_qty(-60)">Subtract 1 hour</a>
-	<a href="#" class="button" id="sub120" onClick="modify_qty(-120)">Subtract 2 hours</a>
 	<a class="laterButton" id="runLaterBack" onClick="document.getElementById('runLaterBox').style.display = 'none'">Back</a>
 	<a class="laterButton" id="runLaterStart" onClick="alert('Wash cycle starting in ' + runLaterHours + ' hours.'); location.reload()">Start timer</a>
 </div>

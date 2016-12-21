@@ -47,8 +47,8 @@ function setWashDuration(duration) { washDuration = duration; totalDuration();}
 function setDryDuration(duration) { dryDuration = duration; totalDuration(); }
 function totalDuration() { durationHours = Math.floor((washDuration + dryDuration)/60) ; durationMinutes = (washDuration + dryDuration) % 60 ; document.getElementById("duration").innerHTML = durationHours + "h:" + durationMinutes + "m";}
 
-function energyCalculation(temp, multiplier, dry) { energyConsumption = 20 * (temp * multiplier + dry) + 54; document.getElementById('energy').style.height = energyConsumption + "px"; }
-function waterCalculation(water, multiplier) { waterConsumption = 23.75 * (water * multiplier) + 50.5; document.getElementById('water').style.height = waterConsumption + "px"; }
+function energyCalculation(temp, multiplier, dry) { energyConsumption = 18.625 * (temp * multiplier + dry) + 55.625; document.getElementById('energy').style.height = energyConsumption + "px"; }
+function waterCalculation(water, multiplier) { waterConsumption = 21.72917 * (water * multiplier) + 52.52083; document.getElementById('water').style.height = waterConsumption + "px"; }
 	
 function loadtemp() {
 	if ( loadImage == "LargeLoad.png" && tempImage == "HighTemp.png") { document.getElementById('LoadTemp').src = "LargeLoad-High.png"; }
